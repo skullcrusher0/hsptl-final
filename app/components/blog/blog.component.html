@@ -1,0 +1,30 @@
+<div fxFlex="75">
+    <div class="bit-lower"></div>
+    <ul *ngFor="let post of posts; let i=index">
+        <li>
+            <mat-card>
+                <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>
+                        {{this.post.title}}
+                    </mat-card-title>
+                    <mat-card-subtitle>Written by <span class="red">Author Name
+                Author Name </span></mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image class="scaled" src="assets/hr.png" alt=""> -->
+                <mat-card-content class="jst">
+                    <p>
+                        {{this.post.content}}
+                    </p>
+                </mat-card-content>
+            </mat-card>
+            <mat-divider></mat-divider>
+        </li>
+        <!-- <mat-chip-list *ngIf="i  tagLength;index=i">
+                  <mat-chip>
+                      {{post.tag[i]}}
+                  </mat-chip>
+        </mat-chip-list> -->
+    </ul>
+    <div class="lower"></div>
+</div>

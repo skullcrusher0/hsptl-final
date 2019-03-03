@@ -1,0 +1,76 @@
+<div class="tallest" fxLayout="column" fxShow fxHide.xs="true" fxHide.lg="false">
+    <mat-toolbar color="primary" class="mat-elevation-z10 fixed-header" fxShow fxHide.xs="true" fxHide.lg="false">
+        <mat-toolbar-row>
+            <a mat-button routerLink="/login" routerLinkActive="active">
+                <h4 class="red">
+                    HSPTL
+                    <mat-icon>favorite</mat-icon>
+                </h4>
+            </a>
+            <a mat-button>
+          Let's Cure
+        </a>
+            <a mat-button>
+          Let's Talk
+        </a>
+            <a mat-button>
+          Find a Doc'
+        </a>
+            <a mat-button routerLink="/blog" routerLinkActive="active">
+          Blog
+        </a>
+            <span class="space"></span>
+            <button mat-stroked-button [matMenuTriggerFor]="menu">Hi,{{userName}}
+          <!-- Doctor Name  --></button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="this.authService.logOut()">Logout</button>
+            </mat-menu>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <div fxLayout="row" fxLayoutAlign="space-evenly stretch" fxFlex="100" fxLayoutGap="4%">
+        <div fxFlex="25">
+        </div>
+        <mat-divider [vertical]="true"></mat-divider>
+
+        <div fxFlex="50">
+            <div class="bit-lower"></div>
+            <div class="mat-title red">
+                Let's Talk
+                <mat-icon>speaker_notes</mat-icon>
+            </div>
+            <div class="lower"></div>
+            <div class="mat-body">
+                Please Click on the Mic to Register your Query after Selecting the Prefered Language
+            </div>
+            <div class="lower"></div>
+            <div class="center">
+                <mat-form-field>
+                    <mat-select placeholder="Select your language" [(ngModel)]="currentLanguage" [disabled]="recognizing">
+                        <mat-option *ngFor="let language of languages" [value]="language" (click)="onSelectLanguage(language)">
+                            {{language}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="center">
+                <button mat-fab class="red-bg" (click)="startButton($event)">
+                  <mat-icon *ngIf="!recognizing">mic</mat-icon>
+                  <mat-icon *ngIf="recognizing">stop</mat-icon>
+                </button>
+            </div>
+
+            <form>
+                <mat-form-field class="speech-result-width">
+                    <textarea matInput [value]="finalTranscript" placeholder="Speech Input Result" rows="15" disabled="true"></textarea>
+                </mat-form-field>
+            </form>
+
+            <mat-card *ngIf="notification" class="notification">{{notification}}</mat-card>
+        </div>
+        <mat-divider [vertical]="true"></mat-divider>
+
+        <div fxFlex="25" class="bit-left">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+<div class="tallest" fxLayout="column" fxShow fxHide.xs="true" fxHide.lg="false">
+    <mat-toolbar color="primary" class="mat-elevation-z10 fixed-header" fxShow fxHide.xs="true" fxHide.lg="false">
+        <mat-toolbar-row>
+            <a mat-button routerLink="/login" routerLinkActive="active">
+                <h4 class="red">
+                    HSPTL
+                    <mat-icon>favorite</mat-icon>
+                </h4>
+            </a>
+            <a mat-button>
+        Let's Cure
+      </a>
+            <a mat-button>
+        Let's Talk
+      </a>
+            <a mat-button>
+        Find a Doc'
+      </a>
+            <a mat-button routerLink="/blog" routerLinkActive="active">
+        Blog
+      </a>
+            <span class="space"></span>
+            <button mat-stroked-button [matMenuTriggerFor]="menu">
+  
+        <mat-icon>keyboard_arrow_down</mat-icon>
+      </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>{{userName}}</button>
+                <button mat-menu-item>Sign Up</button>
+            </mat-menu>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <div fxLayout="row" fxLayoutAlign="space-evenly stretch" fxFlex="100" fxLayoutGap="4%">
+        <div fxFlex="15">
+        </div>
+        <div fxFlex="75">
+            <div class="bit-lower"></div>
+            <div class="mat-title red">
+                Doctor's Nearby
+                <mat-icon>location_on</mat-icon>
+            </div>
+            <ul *ngFor="let doctor of docList">
+                <mat-accordion>
+                    <li>
+                        <mat-expansion-panel [expanded]="true">
+                            <mat-expansion-panel-header>
+                                <mat-panel-title class="purple">
+                                    Dr.{{doctor.name}}
+                                </mat-panel-title>
+                                <mat-panel-description>
+
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <p>
+                                Located at : <span class="red">{{doctor.location}}</span>
+                            </p>
+                            <p>
+                                Email : <span class="red">{{doctor.email}}</span>
+                            </p>
+                            <p>
+                                Phone : <span class="red">{{doctor.contact}}</span>
+                            </p>
+                            <p>
+                                Chat : <span class="red"></span>
+                            </p>
+                        </mat-expansion-panel>
+                    </li>
+                </mat-accordion>
+            </ul>
+        </div>
+        <div fxFlex="20">
+
+        </div>
+    </div>
+</div>

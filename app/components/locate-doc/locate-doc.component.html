@@ -1,0 +1,35 @@
+<div class="tallest" fxLayout="column" fxShow fxHide.xs="true" fxHide.lg="false">
+    <mat-toolbar>
+        <mat-toolbar-row>
+            <a mat-button routerLink="/home" routerLinkActive="active">
+                <h4 class="rdpr">
+                    HSPTL
+                    <mat-icon>favorite</mat-icon>
+                </h4>
+            </a>
+            <span class="space"></span>
+            <h4 class="mat-card-body red">
+                Attention
+            </h4>
+            <span class="space"></span>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <div fxLayout="row" fxLayoutAlign="space-evenly stretch" fxFlex="100" fxLayoutGap="4%">
+        <div class="rest" fxFlex="25"></div>
+        <div class="rest" fxFlex="50">
+            <div class="bit-lower"></div>
+            <h1 mat-dialog-title>Hey There,<span class="red">Doctor</span>!</h1>
+            <div mat-dialog-content>
+                <p style="text-align: justify;">
+                    For accurate working of our website and it's services, we request you
+                    <span class="purple">to provide us with your exact location</span>. As a Doctor, you would understand the importance of this and would agree. Your privacy would be kept in mind. Thanks for cooperation
+                </p>
+            </div>
+            <div mat-dialog-actions>
+                <button mat-button class="purple" (click)="this.myGeo.storeDoctorLocation()">Agree</button>
+                <button mat-button class="red" (click)="this.myGeo.storeDoctorLocation()">Disagree</button>
+            </div>
+        </div>
+        <div class="rest" fxFlex="25"></div>
+    </div>
+</div>
